@@ -60,9 +60,14 @@ function Dashboard() {
                             transition: 'transform 0.2s ease'
                         }}>
                             <div style={{ flex: 1, paddingRight: '24px' }}>
-                                <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '10px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                                    {new Date(record.createdAt).toLocaleDateString()} at {new Date(record.createdAt).toLocaleTimeString()}
-                                </p>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
+                                    <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                                        {new Date(record.createdAt).toLocaleDateString()} at {new Date(record.createdAt).toLocaleTimeString()}
+                                    </p>
+                                    <span style={{ padding: '2px 8px', fontSize: '0.7rem', fontWeight: '700', borderRadius: '4px', textTransform: 'uppercase', background: record.source === 'resume' ? 'rgba(59, 130, 246, 0.15)' : 'rgba(156, 163, 175, 0.15)', color: record.source === 'resume' ? 'var(--accent-primary)' : 'var(--text-secondary)' }}>
+                                        {record.source || 'manual'}
+                                    </span>
+                                </div>
                                 <p style={{ color: 'var(--text-primary)', fontSize: '0.95rem', lineHeight: '1.6' }}>
                                     <strong style={{ color: 'var(--text-secondary)' }}>Skills:</strong> {record.skills.length > 120 ? record.skills.slice(0, 120) + '...' : record.skills}
                                 </p>

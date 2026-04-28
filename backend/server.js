@@ -12,6 +12,10 @@ const uploadRoutes = require('./routes/upload');
 const authRoutes = require('./routes/auth');
 const historyRoutes = require('./routes/history');
 const statsRoutes = require('./routes/stats');
+const atsRoutes = require('./routes/ats');
+const interviewRoutes = require('./routes/interview');
+const roadmapRoutes = require('./routes/roadmap');
+const marketRoutes = require('./routes/market');
 
 // 1. Establish database connection (Availability)
 connectDB();
@@ -50,6 +54,10 @@ app.use('/upload', uploadRoutes);
 app.use('/auth', authRoutes);
 app.use('/history', historyRoutes);
 app.use('/stats', statsRoutes);
+app.use('/ats-scan', atsRoutes);
+app.use('/interview', interviewRoutes);
+app.use('/roadmap', roadmapRoutes);
+app.use('/market', marketRoutes);
 
 // 7. Start the server
 const PORT = process.env.PORT || 5000;

@@ -15,6 +15,11 @@ const UserSchema = new mongoose.Schema({
         ref: 'Account',
         required: false // allow anonymous access securely natively
     },
+    source: {
+        type: String,
+        enum: ['manual', 'resume'],
+        default: 'manual'
+    },
     createdAt: {
         type: Date,
         default: Date.now,
